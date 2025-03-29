@@ -1,16 +1,8 @@
 import { Express, Router } from 'express';
-import { buildTopicModule } from '../composition/topic.module';
+import { buildTopicRouter } from './topic';
 
 export function registerRoutes(app: Express) {
-  const controller = buildTopicModule();
-
-  const router = Router();
-
-  router.post('/', controller.create);
-  router.put('/:id', controller.update);
-  router.get('/:id', controller.get);
-  router.get('/', controller.list);
-  router.get('/:id/tree', controller.getTree);
+  const router = buildTopicRouter();
 
   app.use('/topics', router);
 }

@@ -1,21 +1,23 @@
-// import { Router } from 'express';
-// import { TopicController } from '../controllers/topic';
-// import { TopicService } from '../services/topic/topic';
-// import { TopicRepository } from '../repositories/topic/topic';
-// import { TopicFactory } from '../factories/topic/topic';
+import { Router } from 'express';
+import { TopicService } from '../services/topic/topic';
+import { TopicController } from '../controllers/topic';
+import { TopicRepository } from '../repositories/topic/topic';
+import { TopicFactory } from '../factories/topic/topic';
 
-// const router = Router();
-// const topicRepository = new TopicRepository();
-// const topicFactory = new TopicFactory();
-// const topicService = new TopicService(topicRepository, topicFactory);
-// const controller = new TopicController(topicService);
+export function buildTopicRouter() {
+  const repository = new TopicRepository();
+  const factory = new TopicFactory();
+  const service = new TopicService(repository, factory);
+  const controller = new TopicController(service);
 
-// router.post('/', controller.create);
-// router.put('/:id', controller.update);
-// router.get('/:id', controller.get);
-// router.get('/', controller.list);
+  const router = Router();
 
-// export default {
-//     path: '/topics',
-//     router,
-// }
+  router.post('/', controller.create);
+  router.post('/:id/new-version', controller.createNewVersion);
+  router.get('/path', controller.getPath);
+  router.get('/:id', controller.get);
+  router.get('/', controller.list);
+  router.get('/:id/tree', controller.getTree);
+
+  return router;
+}

@@ -13,9 +13,12 @@ export class TopicFactory {
       updatedAt: now,
       parentTopicId,
     };
-  }
+  };
 
-  createNewVersion = (previous: Topic, updatedContent: Partial<Pick<Topic, 'name' | 'content'>>): Topic => {
+  createNewVersion = (
+    previous: Topic,
+    updatedContent: Partial<Pick<Topic, 'name' | 'content'>>,
+  ): Topic => {
     const now = new Date().toISOString();
     return {
       ...previous,
@@ -27,5 +30,5 @@ export class TopicFactory {
       updatedAt: now,
       parentTopicId: previous.id,
     };
-  }
+  };
 }
