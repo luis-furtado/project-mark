@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "c8464536-703b-4aa3-9780-e56efcd51545",
+		"name": "ProjectMark - Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12472277"
+	},
+	"item": [
+		{
+			"name": "Topic",
+			"item": [
+				{
+					"name": "Update (Create new version))",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"How to get faster\",\n  \"content\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/topics/c8c6214a-43e7-4c17-b455-9304e6bb2b1b/new-version",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"c8c6214a-43e7-4c17-b455-9304e6bb2b1b",
+								"new-version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Without Reference",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Kart Topic\",\n  \"content\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/topics/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Referecing Some Topic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Express\",\n  \"content\": \"teste\",\n  \"parentTopicId\": \"fca75577-ab48-4027-9ef4-bbde908b39b0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/topics/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/topics/f3a5df2d-0ab9-4a32-b5ad-ccb67666b6de",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"f3a5df2d-0ab9-4a32-b5ad-ccb67666b6de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tree by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/topics/dc77b1ee-6ca9-44b2-b274-0b7993aec979/tree",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"dc77b1ee-6ca9-44b2-b274-0b7993aec979",
+								"tree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shortest Path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/topics/path?fromTopicId=15614fa8-c1d4-481a-98c7-6d15e04030fc&toTopicId=fca75577-ab48-4027-9ef4-bbde908b39b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"path"
+							],
+							"query": [
+								{
+									"key": "fromTopicId",
+									"value": "15614fa8-c1d4-481a-98c7-6d15e04030fc"
+								},
+								{
+									"key": "toTopicId",
+									"value": "fca75577-ab48-4027-9ef4-bbde908b39b0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
