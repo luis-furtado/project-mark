@@ -4,8 +4,6 @@ import { TopicAdminStrategy } from '../../../strategies/topic/admin.strategy';
 import { TopicEditorStrategy } from '../../../strategies/topic/editor.strategy';
 import { TopicViewerStrategy } from '../../../strategies/topic/viewer.strategy';
 
-
-
 describe('PermissionStrategyFactory', () => {
   it('should return TopicAdminStrategy when role is ADMIN', () => {
     const strategy = PermissionStrategyFactory.create(UserRole.ADMIN);
